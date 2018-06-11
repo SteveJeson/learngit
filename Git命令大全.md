@@ -6,6 +6,8 @@ git config --global user.name "your name"
 git config --global user.email "your email"
 ## 获取Git配置信息
 git config --list
+## 生成SSH
+ssh-keygen -t rsa -C "youremail@example.com"
 ```
 ## 2、创建版本库和提交代码
 ```
