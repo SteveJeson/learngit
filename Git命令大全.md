@@ -189,7 +189,18 @@ git apply --reject *.patch
 ```
 ## 8、撤销修改
 ```
-
+## 修改上次提交信息
+git commit --amend
+## 取消暂存文件
+git reset HEAD [file_path]
+## 取消修改，恢复到修改前的版本状态
+git checkout -- [file_path]
+## 撤销所有修改文件
+git reset --hard
+## 撤销已提交到本地仓库但是还未推送到远程的文件
+git reset --hard origin/master
+## 已经执行push命令的想恢复到之前的状态
+git reset --hard HEAD^
 ```
 ## 9、版本回退
 ```
