@@ -232,12 +232,24 @@ git stash branch [branch_name]
 ```
 ## 10、删除
 ```
-## 删除没有添加到暂存区的文件
+## 删除未跟踪(没有添加到暂存区)的文件
 git clean -f [file_path]
-## 删除没有添加到暂存区的目录及文件
+## 删除未跟踪的目录及文件
 git clean -df [dir_path]
-## 删除所有没有添加到暂存区的目录及文件
+## 删除所有未跟踪的目录及文件
 git clean -xdf
 ## 显示即将要删除的目录和文件
 git clean -n
+```
+## 11、跟踪处理
+```
+## 忽略已跟踪的文件
+git update-index --assume-unchanged [file_path]
+## 恢复跟踪
+git update-index --no-assume-unchanged [file_path]
+## 取消某个文件跟踪
+git rm -f --cached [file_path]　
+## 取消某个文件目录跟踪
+git rm -r --cached [dir_path]
+
 ```
