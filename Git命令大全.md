@@ -218,15 +218,16 @@ git stash save [description]
 ## 查看现有的stash储藏列表
 git stash list
 ## 重新应用指定储藏,不加参数则默认第一个
-git stash apply [stash@{id}]
+git stash apply [stash@{id}] //id可通过list命令查看
 ## 重新应用第一个stash,并删除
 git stash pop
 ## 重新应用指定stash，并删除
 git stash pop [stash@{id}]
 ## 清空stash列表
 git stash clear
+## 删除指定stash
+git stash drop [stash@{id}]
 ## 基于stash创建分支，创建成功则会删除stash
 git stash branch [branch_name]
-## 
 ```
 ## 10、删除
