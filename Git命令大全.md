@@ -187,23 +187,21 @@ git format-patch commitId
 ## 生成xxx.rej冲突文件，不带提交信息，需要重新提交
 git apply --reject *.patch
 ```
-## 8、撤销修改
+## 8、撤销修改和版本回退
 ```
 ## 修改上次提交信息
 git commit --amend
-## 取消暂存文件
+## 撤销暂存区的修改，重新放回工作区
 git reset HEAD [file_path]
-## 取消修改，恢复到修改前的版本状态
+## 丢弃工作区的修改，恢复到修改前的版本状态
 git checkout -- [file_path]
 ## 撤销所有修改文件
 git reset --hard
 ## 撤销已提交到本地仓库但是还未推送到远程的文件
 git reset --hard origin/master
-## 已经执行push命令的想恢复到之前的状态
+## 回退到上一个版本(注：git中的HEAD指当前版本，上一个加上^表示，上上个用两个^，3个＃## HEAD~3，以此类推)
 git reset --hard HEAD^
+## 回退到指定版本
+git reset --hard [commit_id]
 ```
-## 9、版本回退
-```
-
-```
-## 10、删除
+## ９、删除
