@@ -1,1 +1,1 @@
-learn git test
+learn git

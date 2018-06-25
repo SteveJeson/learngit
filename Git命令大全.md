@@ -231,3 +231,13 @@ git stash drop [stash@{id}]
 git stash branch [branch_name]
 ```
 ## 10、删除
+```
+## 删除没有添加到暂存区的文件
+git clean -f [file_path]
+## 删除没有添加到暂存区的目录及文件
+git clean -df [dir_path]
+## 删除所有没有添加到暂存区的目录及文件
+git clean -xdf
+## 显示即将要删除的目录和文件
+git clean -n
+```
