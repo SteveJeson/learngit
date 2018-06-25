@@ -199,9 +199,14 @@ git checkout -- [file_path]
 git reset --hard
 ## 撤销已提交到本地仓库但是还未推送到远程的文件
 git reset --hard origin/master
-## 回退到上一个版本(注：git中的HEAD指当前版本，上一个加上^表示，上上个用两个^，3个＃## HEAD~3，以此类推)
+## 回退到上一个版本(注：git中的HEAD指当前版本，上一个加上^表示，上上个用两个^，3个
+## 用HEAD~3，以此类推)
 git reset --hard HEAD^
 ## 回退到指定版本
 git reset --hard [commit_id]
+## 以上命令hard参数可以被替换为soft和mixed参数
+git reset --hard //版本和状态一起回退，并删除回退点之前的信息，回退的比较彻底干净
+git reset --soft //版本和状态一起回退，但是会保留回退点之前的信息
+git reset --mixed //版本回退，但是会保留回退点之前的状态和信息，为默认操作
 ```
 ## ９、删除
