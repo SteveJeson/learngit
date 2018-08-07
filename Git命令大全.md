@@ -1,4 +1,4 @@
-# Git命令大全
+# sGit命令大全
 ## 1、配置Git 
 ```
 ## 安装 Git 之后，你要做的第一件事情就是去配置你的名字和邮箱，因为每一次提交都需要这些信息
@@ -107,8 +107,10 @@ git log --oneline -2
 git log --skip=1 -2 --oneline
 ## 显示更多提交信息，包括提交ID，文件树ID，父提交ID，作者和提交者
 git log –pretty=raw
-## 显示提交的改动记录，相当于多次使用git show [commit_id]
+## 显示提交的具体改动记录，相当于多次使用git show [commit_id]
 git log -p
+## 仅查看哪些文件有改动
+git log --stat
 ## 比较本地仓库和远程仓库的区别
 git log -p master.. origin/master
 ## 绘制提交线索，有合并也会显示
@@ -240,6 +242,8 @@ git clean -df [dir_path]
 git clean -xdf
 ## 显示即将要删除的目录和文件
 git clean -n
+## 移除项目的版本控制(删除.git文件)
+rm -rf .git
 ```
 ## 11、跟踪处理
 ```
@@ -247,9 +251,9 @@ git clean -n
 git update-index --assume-unchanged [file_path]
 ## 恢复跟踪
 git update-index --no-assume-unchanged [file_path]
-## 取消某个文件跟踪
+## 取消某个文件跟踪，使之成为未跟踪状态
 git rm -f --cached [file_path]　
-## 取消某个文件目录跟踪
+## 取消某个文件目录跟踪，使之成为未跟踪状态
 git rm -r --cached [dir_path]
 
 ```
