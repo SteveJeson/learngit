@@ -1,4 +1,4 @@
-# sGit命令大全
+# Git命令大全
 ## 1、配置Git 
 ```
 ## 安装 Git 之后，你要做的第一件事情就是去配置你的名字和邮箱，因为每一次提交都需要这些信息
@@ -13,6 +13,8 @@ ssh-keygen -t rsa -C "youremail@example.com"
 ```
 ## 初始化一个git仓库
 git init
+## 关联(添加)远程库地址（可关联多个）git remote add 别名 地址
+git remote add origin http://host/repository/myproject.git 
 ## 查看仓库状态
 git status
 ## 将所有修改添加到暂存区
@@ -35,8 +37,8 @@ git commit –am "comment" 或 git commit –a –m "comment"
 ```
 ## 查看远程库地址信息
 git remote -v
-## 关联(添加)远程库地址（可关联多个）git remote add 别名 地址
-git remote add origin http://host/repository/myproject.git 
+## 查看远程库origin状态
+git remote show origin
 ## 修改关联的远程库地址 git remote set-url 别名 地址
 git remote set-url origin http://192.168.1.161/ddc/ddcsz.git
 ## 删除关联的远程库地址
@@ -55,8 +57,8 @@ git pull origin next:master
 git pull origin next
 ## 当前分支自动与唯一一个追踪分支进行合并
 git pull
-## 手动建立追踪关系：指定本地master分支追踪origin/next分支
-git branch --set-upstream master origin/next
+## 手动建立追踪(关联)关系：指定本地当前所在分支追踪远程next分支
+git branch --set-upstream-to origin/next
 ```
 ## 4、分支管理
 ```
@@ -68,6 +70,8 @@ git branch -m old_local_branch_name new_local_branch_name
 git checkout dev
 ## 新建+切换分支
 git checkout -b dev
+## 推送本地分支到远程库
+git push origin dev
 ## Fast forward模式合并dev分支到当前分支,不记录本次操作
 git merge dev
 ## Fast forward模式合并远程dev分支到当前分支
@@ -82,6 +86,8 @@ git branch -r
 git branch -a
 ## 查看各个分支最后一个提交对象的信息
 git branch -v
+## 查看各个分支对应的远程分支及最后一个提交对象的信息
+git branch -vv
 ## 查看哪些分支被幷入当前分支
 git branch --merged
 ## 查看尚未与当前分支合并的分支
@@ -94,7 +100,12 @@ git branch -D dev
 git branch -r -d origin/dev
 ## 远程删除git服务器上的分支
 git push origin -d dev
+git push origin --delete dev
+
 ```
+## 5、变基
+
+
 ## 5、查看日志
 ```
 ## 以默认格式输出日志
@@ -140,7 +151,8 @@ git reflog
 ```
 ## 创建轻量标签：不需要传递参数，指定标签名即可
 git tag v1.0.0
-## 创建附注标签：参数-a即annotated的缩写，指定标签类型，后附标签名。参数m指定标签说## 明，说明信息会保存在标签对象中
+## 创建附注标签：参数-a即annotated的缩写，指定标签类型，后附标签名。参数m指定标签说
+## 明，说明信息会保存在标签对象中
 git tag -a v1.0.0 -m "标签说明"
 ## 列出当前仓库的所有标签
 git tag
@@ -171,7 +183,9 @@ git diff  HEAD -- filepath
 git diff --staged filepath 或者 git diff --cached filepath
 ## 当前分支的文件与branchName 分支的文件进行比较
 git diff branchName filepath
-## 与某一次提交进行比较
+## 两个提交版本之间的比较 
+git diff commitId1 commitId2
+## 与某一次提交的某个文件夹或者文件进行比较
 git diff commitId filepath 
 ## 两个版本的src文件夹或者文件的比较
 git diff commitId1 commitId2 src
@@ -234,6 +248,10 @@ git stash branch [branch_name]
 ```
 ## 10、删除
 ```
+## 更新远程库对象时删除没用的对象
+git fetch origin --prune
+## 删除远程库没用的对象
+git remote prune origin
 ## 删除未跟踪(没有添加到暂存区)的文件
 git clean -f [file_path]
 ## 删除未跟踪的目录及文件
