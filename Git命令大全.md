@@ -101,11 +101,15 @@ git branch -r -d origin/dev
 ## 远程删除git服务器上的分支
 git push origin -d dev
 git push origin --delete dev
-
+## 将当前分支的修改打成补丁，以develop最近一次提交作为基础，然后将补丁运用上去
+git rebase develop
+## 放弃本次rebase过程，回到初始状态
+git rebase --abort
+## 跳过本次补丁运用
+git rebase --skip
+## 继续运用补丁
+git rebase --continue
 ```
-## 5、变基
-
-
 ## 5、查看日志
 ```
 ## 以默认格式输出日志
