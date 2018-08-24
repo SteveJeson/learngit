@@ -70,6 +70,8 @@ git branch -m old_local_branch_name new_local_branch_name
 git checkout dev
 ## 新建+切换分支
 git checkout -b dev
+## 新建+切换分支+关联远程分支
+git checkout -b dev origin/dev
 ## 推送本地分支到远程库
 git push origin dev
 ## Fast forward模式合并dev分支到当前分支,不记录本次操作
